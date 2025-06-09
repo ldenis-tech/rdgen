@@ -717,7 +717,7 @@ jobs:
           curl -i -X POST -H "Content-Type: multipart/form-data" -H "Authorization: Bearer ${{ fromJson(inputs.extras).token }}" -F "file=@./appimage/${{ inputs.filename }}-${{ matrix.job.arch }}.AppImage" ${{ inputs.apiServer }}/api/save_custom_client
 
   deploy:
-    needs: [build-rustdesk-linux,build-flatpak,build-appimage]
+    needs: [build-rustdesk-linux,build-appimage]
     runs-on: ubuntu-latest
     steps:
 
